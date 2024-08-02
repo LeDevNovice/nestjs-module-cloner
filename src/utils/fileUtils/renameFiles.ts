@@ -8,21 +8,21 @@ export function renameFiles(
 ): void {
   const newDir = path.join('./src', newModule);
 
-  const files = fs.readdirSync(newDir);
+  const renameFilesRecursively = (dir: string) => {
+    const files = fs.readdirSync(dir);
 
-  files.forEach((file) => {
-    const oldFilePath = path.join(newDir, file);
-    const newFilePath = path.join(
-      newDir,
-      file.replace(new RegExp(sourceResourceName, 'g'), newResourceName),
-    );
+    files.forEach((file) => {
+      const filePath = path.join(dir, file);
+      if (fs.statSync(filePath).isDirectory()) {
+        renameFilesRecursively(filePath);
+      } else {
+        const newFileName = file.replace(new RegExp(sourceResourceName, 'g'), newResourceName);
+        const newFilePath = path.join(dir, newFileName);
 
-    try {
-      fs.renameSync(oldFilePath, newFilePath);
-    } catch (error) {
-      throw new Error(
-        `Failed to rename file ${oldFilePath} to ${newFilePath}: ${(error as Error).message}`,
-      );
-    }
-  });
+        fs.renameSync(filePath, newFilePath);
+      }
+    });
+  };
+
+  renameFilesRecursively(newDir);
 }

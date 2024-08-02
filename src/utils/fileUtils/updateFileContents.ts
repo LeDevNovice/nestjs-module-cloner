@@ -11,15 +11,22 @@ export function updateFileContents(
   newResourceName: string,
 ): void {
   const newDir = path.join('./src', newModule);
-  const files = fs.readdirSync(newDir);
 
-  files.forEach((file) => {
-    const filePath = path.join(newDir, file);
+  const updateFilesRecursively = (dir: string) => {
+    const files = fs.readdirSync(dir);
 
-    if (fs.statSync(filePath).isFile()) {
-      replaceInFiles(filePath, sourceResourceName, newResourceName);
-      replaceInFiles(filePath, capitalize(sourceResourceName), capitalize(newResourceName));
-      replaceInFiles(filePath, upperCase(sourceResourceName), upperCase(newResourceName));
-    }
-  });
+    files.forEach((file) => {
+      const filePath = path.join(dir, file);
+
+      if (fs.statSync(filePath).isDirectory()) {
+        updateFilesRecursively(filePath);
+      } else {
+        replaceInFiles(filePath, sourceResourceName, newResourceName);
+        replaceInFiles(filePath, capitalize(sourceResourceName), capitalize(newResourceName));
+        replaceInFiles(filePath, upperCase(sourceResourceName), upperCase(newResourceName));
+      }
+    });
+  };
+
+  updateFilesRecursively(newDir);
 }
