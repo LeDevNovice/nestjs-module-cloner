@@ -1,0 +1,14 @@
+# Build output
+/lib
+
+# Node
+/node_modules
+
+# Environment
+.env
+
+# Tests
+/coverage
+
+# IDE
+.vscode
