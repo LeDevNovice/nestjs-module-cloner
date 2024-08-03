@@ -10,6 +10,10 @@
 ### Security
 -->
 
+## 1.0.2
+### Fixed
+- Include the lib folder build when publish package in npm registry.
+
 ## 1.0.1
 ### Fixed
 - Correct typo errors on command description in the readme file of the project
