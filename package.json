@@ -4,7 +4,6 @@
   "description": "A CLI tool to clone and rename NestJS modules, dependencies and content from an existing to a new resource",
   "author": "LeDevNovice",
   "license": "MIT",
-  "private": true,
   "keywords": [
     "nestjs",
     "cloner",
