@@ -1,6 +1,6 @@
 {
   "name": "nestjs-module-cloner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI tool to clone and rename NestJS modules, dependencies and content from an existing to a new resource",
   "author": "LeDevNovice",
   "license": "MIT",
@@ -59,5 +59,8 @@
       "ts",
       "js"
     ]
-  }
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
