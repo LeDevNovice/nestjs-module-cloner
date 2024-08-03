@@ -1,23 +1,30 @@
 {
   "name": "nestjs-module-cloner",
   "version": "1.0.0",
-  "description": "A CLI tool to clone and rename NestJS modules, dependencies and content for a new resource",
-  "main": "lib/src/index.js",
+  "description": "A CLI tool to clone and rename NestJS modules, dependencies and content from an existing to a new resource",
   "author": "LeDevNovice",
   "license": "MIT",
+  "private": true,
+  "keywords": [
+    "nestjs",
+    "cloner",
+    "module"
+  ],
+  "type": "module",
   "engines": {
     "node": "22.3.0"
   },
   "packageManager": "pnpm@9.4.0",
   "bin": {
-    "nest": "./bin/nest.js"
+    "nmc": "./bin/nmc.mjs"
   },
   "scripts": {
     "build": "tsc && tsc-alias",
     "test": "jest",
     "test:cov": "jest --coverage",
     "format": "prettier --write \"src/*.ts\"",
-    "lint": "eslint \"src/*.ts\" --fix"
+    "lint": "eslint \"src/*.ts\" --fix",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {

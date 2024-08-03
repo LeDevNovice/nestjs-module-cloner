@@ -20,6 +20,5 @@
     "resolveFullPaths": true,
     "verbose": false
   },
-  "include": ["src/**/*.ts", "bin"],
-  "exclude": ["node_modules", "lib"]
+  "include": ["src/**/*"],
 }
