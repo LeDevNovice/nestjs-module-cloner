@@ -34,10 +34,10 @@ To use the tool, navigate to the root of your NestJS project in the terminal and
 nmc <sourceModule> <sourceResourceName> <newModule> <newResourceName>
 ```
 
-- <sourceModule>: The name of the existing module you want to clone.
-- <sourceResourceName>: The name of the resource you want to rename.
-- <newModule>: The name for the new module being created.
-- <newResourceName>: The new name for the resource.
+- sourceModule : The name of the existing module you want to clone.
+- sourceResourceName : The name of the resource you want to rename.
+- newModule : The name for the new module being created.
+- newResourceName : The new name for the resource.
 
 ```bash
 nmc products product articles article
